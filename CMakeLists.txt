@@ -6,6 +6,10 @@ cmake_minimum_required(VERSION 3.1)
 ##
 project(nlohmann_json VERSION 3.9.1 LANGUAGES CXX)
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL Clang)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+endif()
+
 ##
 ## MAIN_PROJECT CHECK
 ## determine if nlohmann_json is built as a subproject (using add_subdirectory) or if it is the main project
